@@ -17,6 +17,7 @@ import { Route as InvoicesIndexRouteImport } from './routes/invoices/index'
 import { Route as InvoicesInvoiceIdRouteImport } from './routes/invoices/$invoiceId'
 import { Route as InvoicesNewRouteImport } from './routes/invoices/new'
 import { Route as PayInvoiceIdRouteImport } from './routes/pay/$invoiceId'
+import { Route as PaySuccessRouteImport } from './routes/pay/success'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const PayInvoiceIdRoute = PayInvoiceIdRouteImport.update({
   path: '/pay/$invoiceId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaySuccessRoute = PaySuccessRouteImport.update({
+  id: '/pay/success',
+  path: '/pay/success',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
   '/invoices/new': typeof InvoicesNewRoute
   '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
   '/invoices/': typeof InvoicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
   '/invoices/new': typeof InvoicesNewRoute
   '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
   '/invoices': typeof InvoicesIndexRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
   '/invoices/new': typeof InvoicesNewRoute
   '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
   '/invoices/': typeof InvoicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/invoices/$invoiceId'
     | '/invoices/new'
     | '/pay/$invoiceId'
+    | '/pay/success'
     | '/invoices/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/invoices/$invoiceId'
     | '/invoices/new'
     | '/pay/$invoiceId'
+    | '/pay/success'
     | '/invoices'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/invoices/$invoiceId'
     | '/invoices/new'
     | '/pay/$invoiceId'
+    | '/pay/success'
     | '/invoices/'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   InvoicesInvoiceIdRoute: typeof InvoicesInvoiceIdRoute
   InvoicesNewRoute: typeof InvoicesNewRoute
   PayInvoiceIdRoute: typeof PayInvoiceIdRoute
+  PaySuccessRoute: typeof PaySuccessRoute
   InvoicesIndexRoute: typeof InvoicesIndexRoute
 }
 
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PayInvoiceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pay/success': {
+      id: '/pay/success'
+      path: '/pay/success'
+      fullPath: '/pay/success'
+      preLoaderRoute: typeof PaySuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvoicesInvoiceIdRoute: InvoicesInvoiceIdRoute,
   InvoicesNewRoute: InvoicesNewRoute,
   PayInvoiceIdRoute: PayInvoiceIdRoute,
+  PaySuccessRoute: PaySuccessRoute,
   InvoicesIndexRoute: InvoicesIndexRoute,
 }
 export const routeTree = rootRouteImport
