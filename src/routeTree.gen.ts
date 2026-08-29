@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CustomersRouteImport } from './routes/customers'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SigninRouteImport } from './routes/signin'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as InvoicesIndexRouteImport } from './routes/invoices/index'
+import { Route as InvoicesInvoiceIdRouteImport } from './routes/invoices/$invoiceId'
+import { Route as InvoicesNewRouteImport } from './routes/invoices/new'
+import { Route as PayInvoiceIdRouteImport } from './routes/pay/$invoiceId'
+import { Route as PaySuccessRouteImport } from './routes/pay/success'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesIndexRoute = InvoicesIndexRouteImport.update({
+  id: '/invoices/',
+  path: '/invoices/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesInvoiceIdRoute = InvoicesInvoiceIdRouteImport.update({
+  id: '/invoices/$invoiceId',
+  path: '/invoices/$invoiceId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesNewRoute = InvoicesNewRouteImport.update({
+  id: '/invoices/new',
+  path: '/invoices/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PayInvoiceIdRoute = PayInvoiceIdRouteImport.update({
+  id: '/pay/$invoiceId',
+  path: '/pay/$invoiceId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaySuccessRoute = PaySuccessRouteImport.update({
+  id: '/pay/success',
+  path: '/pay/success',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/customers': typeof CustomersRoute
+  '/dashboard': typeof DashboardRoute
+  '/payments': typeof PaymentsRoute
+  '/settings': typeof SettingsRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/invoices/new': typeof InvoicesNewRoute
+  '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
+  '/invoices/': typeof InvoicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/customers': typeof CustomersRoute
+  '/dashboard': typeof DashboardRoute
+  '/payments': typeof PaymentsRoute
+  '/settings': typeof SettingsRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/invoices/new': typeof InvoicesNewRoute
+  '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
+  '/invoices': typeof InvoicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/customers': typeof CustomersRoute
+  '/dashboard': typeof DashboardRoute
+  '/payments': typeof PaymentsRoute
+  '/settings': typeof SettingsRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/invoices/new': typeof InvoicesNewRoute
+  '/pay/$invoiceId': typeof PayInvoiceIdRoute
+  '/pay/success': typeof PaySuccessRoute
+  '/invoices/': typeof InvoicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/customers'
+    | '/dashboard'
+    | '/payments'
+    | '/settings'
+    | '/signin'
+    | '/signup'
+    | '/invoices/$invoiceId'
+    | '/invoices/new'
+    | '/pay/$invoiceId'
+    | '/pay/success'
+    | '/invoices/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/customers'
+    | '/dashboard'
+    | '/payments'
+    | '/settings'
+    | '/signin'
+    | '/signup'
+    | '/invoices/$invoiceId'
+    | '/invoices/new'
+    | '/pay/$invoiceId'
+    | '/pay/success'
+    | '/invoices'
+  id:
+    | '__root__'
+    | '/'
+    | '/customers'
+    | '/dashboard'
+    | '/payments'
+    | '/settings'
+    | '/signin'
+    | '/signup'
+    | '/invoices/$invoiceId'
+    | '/invoices/new'
+    | '/pay/$invoiceId'
+    | '/pay/success'
+    | '/invoices/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CustomersRoute: typeof CustomersRoute
+  DashboardRoute: typeof DashboardRoute
+  PaymentsRoute: typeof PaymentsRoute
+  SettingsRoute: typeof SettingsRoute
+  SigninRoute: typeof SigninRoute
+  SignupRoute: typeof SignupRoute
+  InvoicesInvoiceIdRoute: typeof InvoicesInvoiceIdRoute
+  InvoicesNewRoute: typeof InvoicesNewRoute
+  PayInvoiceIdRoute: typeof PayInvoiceIdRoute
+  PaySuccessRoute: typeof PaySuccessRoute
+  InvoicesIndexRoute: typeof InvoicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/': {
+      id: '/invoices/'
+      path: '/invoices'
+      fullPath: '/invoices/'
+      preLoaderRoute: typeof InvoicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/$invoiceId': {
+      id: '/invoices/$invoiceId'
+      path: '/invoices/$invoiceId'
+      fullPath: '/invoices/$invoiceId'
+      preLoaderRoute: typeof InvoicesInvoiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/new': {
+      id: '/invoices/new'
+      path: '/invoices/new'
+      fullPath: '/invoices/new'
+      preLoaderRoute: typeof InvoicesNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pay/$invoiceId': {
+      id: '/pay/$invoiceId'
+      path: '/pay/$invoiceId'
+      fullPath: '/pay/$invoiceId'
+      preLoaderRoute: typeof PayInvoiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pay/success': {
+      id: '/pay/success'
+      path: '/pay/success'
+      fullPath: '/pay/success'
+      preLoaderRoute: typeof PaySuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CustomersRoute: CustomersRoute,
+  DashboardRoute: DashboardRoute,
+  PaymentsRoute: PaymentsRoute,
+  SettingsRoute: SettingsRoute,
+  SigninRoute: SigninRoute,
+  SignupRoute: SignupRoute,
+  InvoicesInvoiceIdRoute: InvoicesInvoiceIdRoute,
+  InvoicesNewRoute: InvoicesNewRoute,
+  PayInvoiceIdRoute: PayInvoiceIdRoute,
+  PaySuccessRoute: PaySuccessRoute,
+  InvoicesIndexRoute: InvoicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
